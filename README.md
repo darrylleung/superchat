@@ -4,7 +4,7 @@ Live site: https://darryl-firechat-desktop.web.app/
 
 ## Overview
 
-This chatroom application was built using React and Firebase. The demo was originally created by (Fireship)[https://fireship.io/lessons/react-firebase-chat-app-tutorial/]. 
+This chatroom application was built using React and Firebase. The demo was originally created by [Fireship](https://fireship.io/lessons/react-firebase-chat-app-tutorial/). 
 
 The application uses Firebase's Authentication, Firestore Database, and Hosting. It allows for realtime chat without the use of HTTP requests.
 
