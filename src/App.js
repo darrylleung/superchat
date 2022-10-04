@@ -88,6 +88,7 @@ function ChatRoom() {
         setFormValue("");
 
       };
+      
       useEffect(() => {
         dummy.current.scrollIntoView({ behavior: "smooth" });
       }, [messages])
