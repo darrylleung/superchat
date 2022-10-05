@@ -67,7 +67,7 @@ function SignOut() {
 function ChatRoom() {
     const dummy = useRef();
     const messagesRef = firestore.collection("messages");
-    const query = messagesRef.orderBy("createdAt").limit(25);
+    const query = messagesRef.orderBy("createdAt").limitToLast(25);
 
     const [messages] = useCollectionData(query, { idField: "id" });
 
@@ -86,12 +86,11 @@ function ChatRoom() {
         });
 
         setFormValue("");
+    };
 
-      };
-      
-      useEffect(() => {
+    useEffect(() => {
         dummy.current.scrollIntoView({ behavior: "smooth" });
-      }, [messages])
+    }, [messages]);
 
     return (
         <>
@@ -110,7 +109,15 @@ function ChatRoom() {
                     placeholder="Send a message..."
                     onChange={(e) => setFormValue(e.target.value)}
                 />
-                <button type="submit" disabled={!formValue}>Send</button>
+                <button
+                    type="submit"
+                    disabled={
+                        !formValue ||
+                        formValue.replace(/^\s+/, "").replace(/\s+$/, "") === ""
+                    }
+                >
+                    Send
+                </button>
             </form>
         </>
     );
